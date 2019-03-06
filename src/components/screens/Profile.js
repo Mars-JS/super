@@ -30,27 +30,16 @@ class Profile extends Component {
             style={{ width: 150, height: 150 }}
             source={require('./image/logo.png')}
           />
-          <TextInput
-            autoCapitalize="none"
-            value="username"
-            placeholder="username"
-            style={styles.input}
-            autoCorrect={false}
-          /*onChangeText={text => this.updateText(text, "email")}*/
-          />
-          <TextInput
-            autoCapitalize="none"
-            value="password"
-            /*onChangeText={text => this.updateText(text, "password")}*/
-            secureTextEntry
-            autoCorrect={false}
-            placeholder="password"
-            style={styles.input}
-          />
-          <Button
-            title="Edit Profile"
-            onPress={() => this.props.navigation.navigate("login")}
-          />
+          <Text style={styles.TextStyle}> name lastname</Text>
+          <Text style={styles.TextStyle}> username </Text>
+          <Text style={styles.TextStyle}> email </Text>
+          <Text style={styles.TextStyle}> phone </Text>
+          <TouchableOpacity
+            style={styles.EditButtonStyle}
+            activeOpacity={.5}
+            onPress={() => this.props.navigation.navigate("login")}>
+            <Text style={styles.TextStyle}> EDIT </Text>
+          </TouchableOpacity>
 
         </View>
       </ImageBackground>
@@ -70,7 +59,23 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.8,
     borderColor: '#d6d7da',
   },
-
+  EditButtonStyle: {
+    marginTop: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    width: 200,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    borderRadius: 20,
+    borderWidth: 0,
+    borderColor: '#fff'
+  },
+  TextStyle: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '500',
+  },
 });
 
 export default Profile;

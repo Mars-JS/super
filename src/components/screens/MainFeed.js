@@ -18,9 +18,8 @@ class InstaClone extends Component {
           flexDirection: 'row',
           height: 100,
           padding: 20,
+          backgroundColor: 'rgba(25,25,25,0.5)',
         }}>
-        <View style={{ backgroundColor: 'blue', flex: 0.3 }} />
-        <View style={{ backgroundColor: 'red', flex: 0.5 }} />
         <Text>MainFeed</Text>
         <PostFeed />
       </View>

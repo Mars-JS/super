@@ -67,16 +67,18 @@ class Register extends Component {
             autoCorrect={false}
           /*onChangeText={text => this.updateText(text, "email")}*/
           />
-          <Button
-            title="Sign Up"
-            onPress={() => this.props.navigation.navigate("feed")}
-          />
-          <Button
-            uppercase={false}
-            title="forgot password?"
-            color="rgba(0,0,0,0.0)"
-            shadowRadius='0'
-          />
+          <TouchableOpacity
+            style={styles.LoginButtonStyle}
+            activeOpacity={.5}
+            onPress={() => this.props.navigation.navigate("login")}>
+            <Text style={styles.TextStyle}> sign up </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.SkipButtonStyle}
+            activeOpacity={.5}
+            onPress={() => this.props.navigation.navigate("feed")}>
+            <Text style={styles.TextStyle}> skip </Text>
+          </TouchableOpacity>
 
         </View>
       </ImageBackground>
@@ -109,6 +111,43 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     color: '#ffffff',
   },
+  
+  LoginButtonStyle: {
+    marginTop: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    width: 200,
+    backgroundColor: '#7C5B93',
+    borderRadius: 20,
+    borderWidth: 0,
+    borderColor: '#fff'
+  },
+  SkipButtonStyle: {
+    marginTop: 5,
+    paddingTop: 15,
+    paddingBottom: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    width: "100%",
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    borderRadius: 0,
+    borderWidth: 0,
+    borderColor: '#fff'
+  },
+
+  TextStyle: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+  SignUpStyle: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+
 });
 
 export default Register;

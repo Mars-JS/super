@@ -18,12 +18,10 @@ class Post extends Component {
           height: 200,
           padding: 20,
         }}>
-        <View style={{ backgroundColor: 'blue', flex: 0.3 }} />
-        <View style={{ backgroundColor: 'white', flex: 0.5 }} />
         <Text>Post</Text>
       </View>
     );
   }
-}
+};
 
 export default Post;
