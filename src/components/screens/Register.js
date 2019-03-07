@@ -25,7 +25,7 @@ class Register extends Component {
             alignItems: "center",
           }}
         >
-          <Text style={styles.titleText}>H O M E S <Text style={styles.titleTextt}> C O .</Text></Text>
+          <Text style={styles.titleTextReg}>H O M E S <Text style={styles.titleTexttReg}> C O .</Text></Text>
           <TextInput
             autoCapitalize="none"
             value="fullname"
@@ -46,7 +46,7 @@ class Register extends Component {
             autoCapitalize="none"
             value="password"
             /*onChangeText={text => this.updateText(text, "password")}*/
-            secureTextEntry
+            secureTextEntry={false}
             autoCorrect={false}
             placeholder="Password"
             style={styles.input}
@@ -70,14 +70,14 @@ class Register extends Component {
           <TouchableOpacity
             style={styles.LoginButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("login")}>
-            <Text style={styles.TextStyle}> sign up </Text>
+            onPress={() => this.props.navigation.navigate("feed")}>
+            <Text style={styles.TextStyle}> s i g n  u p </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.SkipButtonStyle}
             activeOpacity={.5}
             onPress={() => this.props.navigation.navigate("feed")}>
-            <Text style={styles.TextStyle}> skip </Text>
+            <Text style={styles.TextStyle}> s k i p </Text>
           </TouchableOpacity>
 
         </View>
@@ -97,41 +97,60 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderBottomWidth: 0.8,
     borderColor: '#d6d7da',
-
+    textAlign: 'center',
   },
-  titleText: {
+
+  titleTextReg: { //part 1
     fontFamily: 'Cochin',
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: '900',
     color: '#ffffff',
+    marginTop: 50,
+    marginBottom: 50,
   },
-  titleTextt: {
+  titleTexttReg: {  //part 2
     fontFamily: 'Cochin',
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: '200',
     color: '#ffffff',
   },
-  
+
+  SignUpButtonStyle: {
+    textAlign: 'right',
+    marginTop: 0,
+    paddingTop: 5,
+    paddingBottom: 55,
+    marginLeft: 0,
+    marginRight: 0,
+    width: "100%",
+    backgroundColor: 'rgba(0,0,0,0)',
+    borderRadius: 0,
+    borderWidth: 0,
+    borderColor: '#fff',
+    alignItems: 'flex-end',
+  },
+
   LoginButtonStyle: {
     marginTop: 10,
-    paddingTop: 15,
-    paddingBottom: 15,
+    paddingTop: 11,
+    paddingBottom: 11,
     marginLeft: 10,
     marginRight: 10,
-    width: 200,
-    backgroundColor: '#7C5B93',
+    width: 250,
+    backgroundColor: 'rgb(121,114,187)',
     borderRadius: 20,
     borderWidth: 0,
     borderColor: '#fff'
   },
+
   SkipButtonStyle: {
-    marginTop: 5,
+    marginTop: 15,
     paddingTop: 15,
     paddingBottom: 15,
     marginLeft: 10,
     marginRight: 10,
     width: "100%",
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: 'rgba(50,50,50,0.9)',
     borderRadius: 0,
     borderWidth: 0,
     borderColor: '#fff'
@@ -144,7 +163,7 @@ const styles = StyleSheet.create({
   },
   SignUpStyle: {
     color: '#fff',
-    textAlign: 'center',
+    textAlign: 'right',
     fontWeight: '500',
   },
 

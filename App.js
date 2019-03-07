@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Platform } from "react-native";
-import InstaClone from "./src/InstaClone.js";
+import HomesCo from "./src/HomesCo.js";
 import { SafeAreaView } from "react-navigation";
 
 if (Platform.OS === "android") {
@@ -20,7 +20,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.wrapper} automaticallyAdjustContentInsets={false}>
-        <InstaClone />
+        <HomesCo />
       </View>
     );
   }

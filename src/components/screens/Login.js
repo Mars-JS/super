@@ -7,7 +7,8 @@ import {
   Button,
   StyleSheet,
   ImageBackground,
-  Image
+  Image,
+  Icon,
 } from "react-native";
 
 class Login extends Component {
@@ -20,7 +21,7 @@ class Login extends Component {
           style={styles.SignUpButtonStyle}
           activeOpacity={.5}
           onPress={() => this.props.navigation.navigate("register")}>
-          <Text style={styles.SignUpStyle}> signup </Text>
+          <Text style={styles.SignUpStyle}> s i g n   u p </Text>
         </TouchableOpacity>
         
         <View
@@ -28,15 +29,11 @@ class Login extends Component {
             height: 100 + "%",
             width: 100 + "%",
             flex: 1,
-            justifyContent: "center",
             alignItems: "center",
           }}
         >
           <Text style={styles.titleText}>H O M E S <Text style={styles.titleTextt}> C O .</Text></Text>
-          {/* <Image
-            style={{ width: 150, height: 150 }}
-            source={require('./image/logo.png')}
-          /> */}
+
           <TextInput
             autoCapitalize="none"
             value="username"
@@ -45,11 +42,12 @@ class Login extends Component {
             autoCorrect={false}
           /*onChangeText={text => this.updateText(text, "email")}*/
           />
+          
           <TextInput
             autoCapitalize="none"
             value="password"
             /*onChangeText={text => this.updateText(text, "password")}*/
-            secureTextEntry
+            secureTextEntry={false}
             autoCorrect={false}
             placeholder="password"
             style={styles.input}
@@ -58,23 +56,23 @@ class Login extends Component {
           <TouchableOpacity
             style={styles.LoginButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("profile")}>
-            <Text style={styles.TextStyle}> login </Text>
+            onPress={() => this.props.navigation.navigate("feed")}>
+            <Text style={styles.TextStyle}> l o g i n </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.SkipButtonStyle}
+            style={styles.pwButtonStyle}
             activeOpacity={.5}
             onPress={() => this.props.navigation.navigate("login")}>
-            <Text style={styles.TextStyle}> forgot password? </Text>
+            <Text style={styles.TextStyle}> f o r g o t  p a s s w o r d ? </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.SkipButtonStyle}
             activeOpacity={.5}
             onPress={() => this.props.navigation.navigate("feed")}>
             <Text style={styles.TextStyle}> skip </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
         </View>
       </ImageBackground>
@@ -93,56 +91,59 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderBottomWidth: 0.8,
     borderColor: '#d6d7da',
+    textAlign: 'center',
   },
 
-  titleText: {
+  titleText: { //part 1
     fontFamily: 'Cochin',
     fontSize: 30,
     fontWeight: '900',
     color: '#ffffff',
-    marginBottom: 150,
+    marginBottom: 175,
   },
-
-  titleTextt: {
+  titleTextt: { //part 2
     fontFamily: 'Cochin',
     fontSize: 30,
     fontWeight: '200',
     color: '#ffffff',
   },
-  
+
+  SignUpButtonStyle: {
+    textAlign: 'right',
+    marginTop: 0,
+    paddingTop: 5,
+    paddingBottom: 55,
+    marginLeft: 0,
+    marginRight: 0,
+    width: "100%",
+    backgroundColor: 'rgba(0,0,0,0)',
+    borderRadius: 0,
+    borderWidth: 0,
+    borderColor: '#fff',
+    alignItems: 'flex-end',
+  },
+
   LoginButtonStyle: {
     marginTop: 10,
-    paddingTop: 15,
-    paddingBottom: 15,
+    paddingTop: 11,
+    paddingBottom: 11,
     marginLeft: 10,
     marginRight: 10,
-    width: 200,
-    backgroundColor: '#7C5B93',
+    width: 250,
+    backgroundColor: 'rgb(121,114,187)',
     borderRadius: 20,
     borderWidth: 0,
     borderColor: '#fff'
   },
 
-  SkipButtonStyle: {
-    marginTop: 5,
+  pwButtonStyle: {
+    marginTop: 15,
     paddingTop: 15,
     paddingBottom: 15,
     marginLeft: 10,
     marginRight: 10,
     width: "100%",
-    backgroundColor: 'rgba(0,0,0,0.3)',
-    borderRadius: 0,
-    borderWidth: 0,
-    borderColor: '#fff'
-  },
-  SignUpButtonStyle: {
-    marginTop: 0,
-    paddingTop: 5,
-    paddingBottom: 5,
-    marginLeft: 0,
-    marginRight: 0,
-    width: "100%",
-    backgroundColor: 'rgba(0,0,0,0.1)',
+    backgroundColor: 'rgba(50,50,50,0.9)',
     borderRadius: 0,
     borderWidth: 0,
     borderColor: '#fff'
@@ -155,8 +156,19 @@ const styles = StyleSheet.create({
   },
   SignUpStyle:{
     color: '#fff',
-    textAlign: 'center',
+    textAlign: 'right',
     fontWeight: '500',
+  },
+  
+  searchSection: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+  icon:{
+    flex: 1,
+    height: 25,
+    width: 25,
   },
 });
 

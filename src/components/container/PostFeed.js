@@ -1,28 +1,45 @@
 import React, { Component } from "react";
 import { Post } from "../presentation";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  Button,
-  StyleSheet,
-  FlatList
-} from "react-native";
+import { FlatList } from "react-native";
 
 class PostFeed extends Component {
 
+  _renderPost({ item }) {
+    return <Post item={item} />;
+  }
+
+  _returnKey(item) {
+    return item.toString();
+  }
+
   render() {
     return (
-      <View
-        style={{
-          flexDirection: 'row',
-          height: 100,
-          padding: 20,
-        }}>
-        <Text>post feed</Text>
-        <Post/>
-      </View>
+      <FlatList
+        data={[
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]}
+        keyExtractor={this._returnKey}
+        renderItem={this._renderPost}
+      />
     );
   }
 }

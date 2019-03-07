@@ -30,7 +30,7 @@ const MainStack = SwitchNavigator({
   main: Tabs,
 });
 
-class InstaClone extends Component {
+class HomesCo extends Component {
   storeId() {
     console.log("calling");
   }
@@ -40,4 +40,4 @@ class InstaClone extends Component {
   }
 };
 
-export default InstaClone;
+export default HomesCo;
