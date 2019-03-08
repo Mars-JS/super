@@ -35,7 +35,7 @@ class Post extends Component {
     const imageUri = imageSelection + "=s" + imageHeight + "-c";
 
     const heartIconColor = this.state.liked ? "rgb(252,61,57)" : null;
-
+    
     return (
       <View style={{ flex: 1, width: 100 + "%" }}>
         {/* <View style={styles.userBar}> //user profile stuff
@@ -57,7 +57,7 @@ class Post extends Component {
           }}
         >
           <ImageBackground
-            style={{ width: this.state.screenWidth, height: 555 }}
+            style={{ width: this.state.screenWidth, height: 605 }}
             source={{ uri: imageUri }} >
 
             <View style={styles.iconBar}>
@@ -95,7 +95,7 @@ class Post extends Component {
               <TouchableOpacity
                 style={styles.BuyButtonStyle}
                 activeOpacity={.5}
-                onPress={() => this.props.navigation.navigate("profile")}>
+                onPress={() => this.props.navigate("camera")}>
                 <Text style={styles.TextStyle}> buy </Text>
               </TouchableOpacity>
             </View>

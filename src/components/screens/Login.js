@@ -9,13 +9,26 @@ import {
   ImageBackground,
   Image,
   Icon,
+  Dimensions
 } from "react-native";
 
-class Login extends Component {
+class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      liked: false,
+      screenHeight: Dimensions.get("window").height
+    };
+  }
 
   render() {
+    const imageHeight = Math.floor(this.state.screenHeight );
+    const imageSelection = "https://lh3.googleusercontent.com/OpqsEUi7jtdlhPxcObLRUJbQ0PwBcaleUaw_7xSnFet1dDrnkAiEfcLJrp9w8XCYUePl5ZqIiKjDmsEdKAUvxTvj_YY";
+    const imageUri = imageSelection + "=s" + imageHeight + "-c";
     return (
-      <ImageBackground source={require('./image/registerBG.jpg')} style={{ width: '100%', height: '100%' }}>
+      
+      <ImageBackground source={{ uri: imageUri }} style={{ width: '100%', height: '100%' }}>
+        <View style={styles.overlayStyle} />
 
         <TouchableOpacity
           style={styles.SignUpButtonStyle}
@@ -56,14 +69,14 @@ class Login extends Component {
           <TouchableOpacity
             style={styles.LoginButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("feed")}>
+            onPress={() => this.props.navigation.navigate("main")}>
             <Text style={styles.TextStyle}> l o g i n </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.pwButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("login")}>
+            onPress={() => this.props.navigation.navigate("introstack")}>
             <Text style={styles.TextStyle}> f o r g o t  p a s s w o r d ? </Text>
           </TouchableOpacity>
 
@@ -76,11 +89,22 @@ class Login extends Component {
 
         </View>
       </ImageBackground>
+      
     );
   }
 }
 
 const styles = StyleSheet.create({
+  overlayStyle:{
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 100 + "%",
+    width: 100+"%",
+  },
   input: {
     height: 50,
     width: 70 + "%",
@@ -96,14 +120,14 @@ const styles = StyleSheet.create({
 
   titleText: { //part 1
     fontFamily: 'Cochin',
-    fontSize: 30,
+    fontSize: 35,
     fontWeight: '900',
     color: '#ffffff',
     marginBottom: 175,
   },
   titleTextt: { //part 2
     fontFamily: 'Cochin',
-    fontSize: 30,
+    fontSize: 35,
     fontWeight: '200',
     color: '#ffffff',
   },
@@ -112,7 +136,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     marginTop: 0,
     paddingTop: 5,
-    paddingBottom: 55,
+    paddingBottom: 135,
     marginLeft: 0,
     marginRight: 0,
     width: "100%",

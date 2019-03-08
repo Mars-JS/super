@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgb(233,233,233)",
     borderBottomWidth: StyleSheet.hairlineWidth,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   titleMain: { //part 1
     fontFamily: 'Cochin',

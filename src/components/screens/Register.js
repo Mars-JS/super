@@ -14,7 +14,7 @@ class Register extends Component {
 
   render() {
     return (
-      <ImageBackground source={require('./image/registerBG.jpg')} style={{ width: '100%', height: '100%' }}>
+      <ImageBackground source={require('./image/loginBG.jpg')} style={{ width: '100%', height: '100%' }}>
         
         <View
           style={{
@@ -70,13 +70,13 @@ class Register extends Component {
           <TouchableOpacity
             style={styles.LoginButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("feed")}>
+            onPress={() => this.props.navigation.navigate("profile")}>
             <Text style={styles.TextStyle}> s i g n  u p </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.SkipButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("feed")}>
+            onPress={() => this.props.navigation.navigate("main")}>
             <Text style={styles.TextStyle}> s k i p </Text>
           </TouchableOpacity>
 
