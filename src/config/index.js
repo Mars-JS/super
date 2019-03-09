@@ -5,7 +5,8 @@ export default {
     heartIcon: require("../../assets/heart.png"),
     facebookIcon: require("../../assets/Facebook-share-icon.png"),
     bubbleIcon: require("../../assets/bubble.png"),
-    arrowIcon: require("../../assets/arrow.png")
+    arrowIcon: require("../../assets/arrow.png"),
+    searchIcon: require("../../assets/search.png"),
   },
   styleConstants: {
     rowHeight: 50,

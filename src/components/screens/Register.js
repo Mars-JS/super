@@ -43,7 +43,7 @@ class Register extends Component {
             placeholder="Full Name"
             style={styles.input}
             autoCorrect={false}
-          /*onChangeText={text => this.updateText(text, "email")}*/
+            /*onChangeText={text => this.updateText(text, "email")}*/
           />
           <TextInput
             autoCapitalize="none"
@@ -68,7 +68,7 @@ class Register extends Component {
             placeholder="Email"
             style={styles.input}
             autoCorrect={false}
-          /*onChangeText={text => this.updateText(text, "email")}*/
+            /*onChangeText={text => this.updateText(text, "email")}*/
           />
           <TextInput
             autoCapitalize="none"
@@ -81,7 +81,7 @@ class Register extends Component {
           <TouchableOpacity
             style={styles.LoginButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("profile")}>
+            onPress={() => this.props.navigation.navigate("search")}>
             <Text style={styles.TextStyle}> s i g n  u p </Text>
           </TouchableOpacity>
           <TouchableOpacity

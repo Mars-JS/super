@@ -12,7 +12,7 @@ import {
   Dimensions
 } from "react-native";
 
-class Login extends React.Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {

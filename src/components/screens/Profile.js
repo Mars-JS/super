@@ -11,20 +11,23 @@ import {
   Icon,
   Dimensions
 } from "react-native";
+import config from "../../config";
 
 class Profile extends Component {
   constructor() {
     super();
     this.state = {
       liked: false,
-      screenHeight: Dimensions.get("window").height
+      screenHeight: Dimensions.get("window").height,
+      screenWidth: Dimensions.get('window').width
     };
   }
 
   render() {
-    const imageHeight = Math.floor(this.state.screenHeight);
+    const imageHeight = Math.floor(this.state.screenHeight+1);
     const imageSelection = "https://lh3.googleusercontent.com/OpqsEUi7jtdlhPxcObLRUJbQ0PwBcaleUaw_7xSnFet1dDrnkAiEfcLJrp9w8XCYUePl5ZqIiKjDmsEdKAUvxTvj_YY";
     const imageUri = imageSelection + "=s" + imageHeight + "-c";
+    
     return (
       <ImageBackground source={{ uri: imageUri }} style={{ width: '100%', height: '100%' }}>
         <View style={styles.overlayStyle} />
@@ -36,37 +39,51 @@ class Profile extends Component {
             alignItems: "center",
           }}
         >
-          <Image
-            style={{ width: 150, height: 150, marginTop: 150 }}
-            source={require('./image/user0.png')}
+
+          <Image style={styles.userPic}
+                source={{ uri: "https://lh3.googleusercontent.com/FJlpEczYnksiJtE3JKmy2jeEQzkjBZT--KAW6uCelPiWe0Bkb41I6_bIcT8m0hv7O73Kw2P2rACMSIaPfPMk_Ixk0g" }}
           />
 
           <TextInput
             autoCapitalize="none"
             value="fullname"
-            placeholder="name lastname"
+            placeholder="fullname"
             style={styles.input}
             autoCorrect={false}
           /*onChangeText={text => this.updateText(text, "email")}*/
           />
-
           <TextInput
             autoCapitalize="none"
             value="username"
-            placeholder="username"
+            placeholder="Brian"
             style={styles.input}
             autoCorrect={false}
           /*onChangeText={text => this.updateText(text, "email")}*/
           />
-
+          <TextInput
+            autoCapitalize="none"
+            value="password"
+            /*onChangeText={text => this.updateText(text, "password")}*/
+            secureTextEntry
+            autoCorrect={false}
+            placeholder="Password"
+            style={styles.input}
+          />
           <TextInput
             autoCapitalize="none"
             value="email"
-            /*onChangeText={text => this.updateText(text, "password")}*/
-            secureTextEntry={false}
-            autoCorrect={false}
-            placeholder="email"
+            placeholder="Email"
             style={styles.input}
+            autoCorrect={false}
+          /*onChangeText={text => this.updateText(text, "email")}*/
+          />
+          <TextInput
+            autoCapitalize="none"
+            value="phone"
+            placeholder="Phone"
+            style={styles.input}
+            autoCorrect={false}
+          /*onChangeText={text => this.updateText(text, "email")}*/
           />
 
           <TouchableOpacity
@@ -75,7 +92,7 @@ class Profile extends Component {
             onPress={() => this.props.navigation.navigate("profile")}>
             <Text style={styles.TextStyle}> e d i t  p r o f i l e </Text>
           </TouchableOpacity>
-
+          
         </View>
       </ImageBackground>
     );
@@ -83,6 +100,15 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
+  profilePicContainer: {
+    width: 100 + "%",
+    flexDirection: "row",
+    flexWrap: "wrap"
+  },
+  profilePicThumb: {
+    width: config.styleConstants.oneThirdWidth,
+    height: config.styleConstants.oneThirdWidth
+  },
   overlayStyle: {
     backgroundColor: 'rgba(0,0,0,0.5)',
     position: 'absolute',
@@ -182,6 +208,12 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 25,
     width: 25,
+  },
+  userPic: {
+    height: 80,
+    borderRadius: 40,
+    width: 80,
+    marginTop: 100,
   },
 });
 

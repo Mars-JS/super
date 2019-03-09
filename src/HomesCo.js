@@ -5,7 +5,8 @@ import {
   Login,
   Register,
   Camera,
-  Profile
+  Profile,
+  Search,
 } from "./components/screens";
 
 import {
@@ -22,6 +23,7 @@ import {
 
 const BrowseStack = StackNavigator({
   feed: MainFeed,
+  search: Search,
   camera: Camera,
   profile: Profile,
 },

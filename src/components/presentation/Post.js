@@ -95,7 +95,7 @@ class Post extends Component {
               <TouchableOpacity
                 style={styles.BuyButtonStyle}
                 activeOpacity={.5}
-                onPress={() => this.props.navigate("camera")}>
+                onPress={() => this.props.navigate(".././screens/camera")}>
                 <Text style={styles.TextStyle}> buy </Text>
               </TouchableOpacity>
             </View>
