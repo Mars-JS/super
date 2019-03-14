@@ -4,7 +4,6 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
-  Button,
   StyleSheet,
   ImageBackground,
   Image,
@@ -20,6 +19,8 @@ class Search extends Component {
       screenWidth: Dimensions.get("window").width
     };
   }
+
+  //platform check(android,iphone)Get location data permission, retrieve location
 
   render() {
     const imageHeight = Math.floor(this.state.screenWidth*1.3);
@@ -51,14 +52,14 @@ class Search extends Component {
             placeholder="Search new homes"
             style={styles.inputSearch}
             autoCorrect={false}
-          /*onChangeText={text => this.updateText(text, "email")}*/
+          /*onChangeText={text => this.updateText(text, "email")}
+            onChangeText={text => this.props.navigation.navigate("feed")}*/
             />
           
-
           <TouchableOpacity
             style={styles.FilterButtonStyle}
             activeOpacity={.5}
-            onPress={() => this.props.navigation.navigate("feed")}>
+            onPress={() => this.props.navigation.navigate("filter")}>
             <Text style={styles.filterTextStyle}> add filters </Text>
           </TouchableOpacity>
         </View>

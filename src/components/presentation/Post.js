@@ -68,11 +68,12 @@ class Post extends Component {
             ]}
                 source={config.images.heartIcon}
               />
-              <Text style={[styles.TextStyle]}>1.2k</Text>
+              <Text style={[styles.TextStyle]}>2.3k</Text>
               <Image
                 style={[styles.icon, { height: 36, width: 36, marginRight: 10 }]}
                 source={config.images.facebookIcon}
               />
+              <Text style={[styles.TextStyle]}>1.6k</Text>
               {/* <Image
                 resizeMode="stretch"
                 style={[styles.icon, { height: 50, width: 40 }]}
@@ -95,7 +96,7 @@ class Post extends Component {
               <TouchableOpacity
                 style={styles.BuyButtonStyle}
                 activeOpacity={.5}
-                onPress={() => this.props.navigate(".././screens/camera")}>
+                onPress={() => this.props.navigate("camera")}>
                 <Text style={styles.TextStyle}> buy </Text>
               </TouchableOpacity>
             </View>

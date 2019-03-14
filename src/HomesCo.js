@@ -7,6 +7,7 @@ import {
   Camera,
   Profile,
   Search,
+  SearchFilters,
 } from "./components/screens";
 
 import {
@@ -23,25 +24,32 @@ import {
 
 const BrowseStack = StackNavigator({
   feed: MainFeed,
-  search: Search,
+  
   camera: Camera,
   profile: Profile,
 },
   {
     navigationOptions: () => ({
-      headerStyle: { position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 }
+      headerStyle: { position: 'absolute', 
+          backgroundColor: 'transparent', 
+          zIndex: 100, top: 0, left: 0, right: 0 }
     }),
   }
-  );
+);
 
 const IntroStack = StackNavigator({
   login: Login,
   register: Register,
-
+  search: Search,
+  filter: SearchFilters,
 },
   {
     navigationOptions: () => ({
-      headerStyle: { position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 }
+      headerStyle: {
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 100, top: 0, left: 0, right: 0
+      }
     }),
   }
 );

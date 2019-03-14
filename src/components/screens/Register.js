@@ -27,6 +27,14 @@ class Register extends Component {
     return (
       <ImageBackground source={{ uri: imageUri }} style={{ width: '100%', height: '100%' }}>
         <View style={styles.overlayStyle} />
+
+        <TouchableOpacity
+          style={styles.SignUpButtonStyle}
+          activeOpacity={.5}
+          onPress={() => this.props.navigation.navigate("login")}>
+          <Text style={styles.SignUpStyle}> l o g i n </Text>
+        </TouchableOpacity>
+
         <View
           style={{
             height: 100 + "%",
