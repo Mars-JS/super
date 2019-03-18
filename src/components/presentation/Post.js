@@ -38,7 +38,8 @@ class Post extends Component {
     
     return (
       <View style={{ flex: 1, width: 100 + "%" }}>
-        {/* <View style={styles.userBar}> //user profile stuff
+
+        {/* <View style={styles.userBar}> //user profile bar
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Image
               style={styles.userPic}
@@ -50,6 +51,7 @@ class Post extends Component {
             <Text style={{ fontSize: 30 }}>...</Text>
           </View>
         </View> */}
+
         <TouchableOpacity
           activeOpacity={0.7}
           onPress={() => {
@@ -65,7 +67,7 @@ class Post extends Component {
                 style={[
                   styles.icon,
                   { height: 45, width: 45, tintColor: heartIconColor, marginBottom: -5 }
-            ]}
+                ]}
                 source={config.images.heartIcon}
               />
               <Text style={[styles.TextStyle]}>2.3k</Text>
@@ -92,7 +94,7 @@ class Post extends Component {
               <Text style={styles.infoText}> 21045 Willignham Ct. </Text>
               <Text style={styles.infoText}> Boulder, Co 536727 </Text>
               <Text style={styles.infoText}> 3 beds | 4 baths | 3,100 sq.ft </Text>
-              
+
               <TouchableOpacity
                 style={styles.BuyButtonStyle}
                 activeOpacity={.5}
@@ -102,7 +104,7 @@ class Post extends Component {
             </View>
           </ImageBackground>
         </TouchableOpacity>
-        
+
       </View>
     );
   }

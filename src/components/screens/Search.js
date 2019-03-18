@@ -70,51 +70,51 @@ class Search extends Component {
 }
 
 const styles = StyleSheet.create({
-  logoStyle:{
+  logoStyle: {
     width: 200,
-    height: 200,
+    height: 200
   },
   icon: {
-    height: 45, 
-    width: 45, 
-    tintColor: 'rgb(255,255,255)',
-    margin:0,
-    position: 'absolute',
-    right: 25+"%",
-    top: 68+"%",
+    height: 45,
+    width: 45,
+    tintColor: "rgb(255,255,255)",
+    margin: 0,
+    position: "absolute",
+    right: 25 + "%",
+    top: 68 + "%"
   },
   textStyle: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '500',
-    marginBottom: 25,
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "500",
+    marginBottom: 25
   },
-  filterTextStyle:{
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '500',
+  filterTextStyle: {
+    color: "rgb(61, 180, 226)",
+    textAlign: "center",
+    fontWeight: "500"
   },
   overlayStyle: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    position: 'absolute',
+    backgroundColor: "rgba(0,0,0,0.5)",
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     height: 100 + "%",
-    width: 100 + "%",
+    width: 100 + "%"
   },
   inputSearch: {
     height: 50,
     width: 70 + "%",
-    color: '#ffffff',
-    fontWeight: 'bold',
+    color: "#ffffff",
+    fontWeight: "bold",
     marginHorizontal: 50,
     backgroundColor: "rgba(0, 0, 0, 0.01)",
     borderWidth: 0.8,
     borderRadius: 20,
-    borderColor: '#d6d7da',
-    textAlign: 'center',
+    borderColor: "#d6d7da",
+    textAlign: "center"
   },
 
   FilterButtonStyle: {
@@ -123,13 +123,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     width: 325,
-    backgroundColor: 'rgba(0,0,0,0)',
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: 20,
     borderWidth: 0,
-    borderColor: 'rgba(255,255,255,0.9)'
-  },
-
-
+    borderColor: "rgba(255,255,255,0.9)"
+  }
 });
 
 export default Search;
