@@ -11,23 +11,33 @@ import {
   Dimensions,
   Slider,
 } from "react-native";
+
 import config from "../../config";
 
 class SearchFilters extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      liked: false,
+      selected: false,
       screenWidth: Dimensions.get("window").width,
       price: 599999,
-    }
-  
+      text: "",
+    };
   }
 
+  selectToggle() {
+    this.setState({
+      selected: !this.state.selected
+    });
+  }
+  
   //platform check(android,iphone)if no location data, Get location data permission, retrieve location
 
   render() {
-    const imageUri = "https://lh3.googleusercontent.com/XqqVnVJYaMKZ8DOov0m61y4E3XhLMUwNFtA9gpJc4HubL8PCOmAzdEuK3tRjEHUcC93LQHCzMyOWkp_3IpusPuyPWQ";
+    const bgColor1 = this.state.selected ? "rgba(61, 180, 226, 0.9)" : null;
+    const bgColor2 = this.state.selected ? "rgba(61, 180, 226, 0.9)" : null;
+    const imageUri =
+      "https://lh3.googleusercontent.com/XqqVnVJYaMKZ8DOov0m61y4E3XhLMUwNFtA9gpJc4HubL8PCOmAzdEuK3tRjEHUcC93LQHCzMyOWkp_3IpusPuyPWQ";
     return (
       <ImageBackground
         style={{ width: "100%", height: "100%", backgroundColor: "blue" }}
@@ -35,13 +45,9 @@ class SearchFilters extends Component {
       >
         <View style={styles.overlayStyle} />
 
-        <TouchableOpacity
-          style={styles.LocButtonStyle}
-          activeOpacity={0.5}
-          //onPress={() => this.props.navigation.navigate("register")}
-        >
+        <View style={styles.LocTitleStyle}>
           <Text style={styles.LocStyle}> Location </Text>
-        </TouchableOpacity>
+        </View>
 
         <View
           style={{
@@ -52,13 +58,16 @@ class SearchFilters extends Component {
           }}
         >
           <TextInput
+            underlineColorAndroid="transparent"
+            editable={true}
+            maxLength={40}
+            onChangeText={text => this.setState({ text })}
+            value={this.state.text}
             autoCapitalize="none"
-            value="search location"
-            placeholder="Search Location"
+            placeholder="search location"
             style={styles.inputSearch}
             autoCorrect={false}
-            /*onChangeText={text => this.updateText(text, "email")}
-            onChangeText={text => this.props.navigation.navigate("feed")}*/
+            /*onChangeText={text => this.updateText(text, "email")}*/
           />
 
           <TouchableOpacity
@@ -66,24 +75,18 @@ class SearchFilters extends Component {
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
-            <Text style={styles.UseLocStyle}>
-              {" "}
-              Or use current Location{" "}
-            </Text>
+            <Text style={styles.UseLocStyle}> Or use current Location </Text>
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity
-          style={styles.PropertyButtonStyle}
-          activeOpacity={0.5}
-          onPress={() => this.props.navigation.navigate("main")}
-        >
-          <Text style={styles.PropertyStyle}> Property Types </Text>
-        </TouchableOpacity>
+        <View style={styles.FilterTitleStyle}>
+          <Text style={styles.FilterText}> Property Types </Text>
+        </View>
 
         <View
           style={{
             width: 100 + "%",
+            height: 100 + "%",
             flex: 1,
             flexDirection: "row",
             justifyContent: "center",
@@ -91,42 +94,42 @@ class SearchFilters extends Component {
           }}
         >
           <TouchableOpacity
-            style={styles.LeftButtonStyle}
+            style={styles.PropertyButtonStyle}
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
             <Text style={styles.TypeStyle}> Homes </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.CenterButtonStyle}
+            style={styles.PropertyButtonStyle}
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
             <Text style={styles.TypeStyle}> Apartments </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.RightButtonStyle}
+            style={styles.PropertyButtonStyle}
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
             <Text style={styles.TypeStyle}> Townhomes </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.LeftButtonStyle}
+            style={styles.PropertyButtonStyle}
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
             <Text style={styles.TypeStyle}> Condos </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.CenterButtonStyle}
+            style={styles.PropertyButtonStyle}
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
             <Text style={styles.TypeStyle}> Duplex </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.RightButtonStyle}
+            style={styles.PropertyButtonStyle}
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
@@ -134,24 +137,23 @@ class SearchFilters extends Component {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity
-          style={styles.PropertyButtonStyle}
-          activeOpacity={0.5}
-          onPress={() => this.props.navigation.navigate("main")}
-        >
-          <Text style={styles.PropertyStyle}> Max Price </Text>
-        </TouchableOpacity>
+        <View style={styles.FilterTitleStyle}>
+          <Text style={styles.FilterText}> Max Price </Text>
+        </View>
+
         <View
           style={{
             height: 100 + "%",
             width: 100 + "%",
             flex: 1,
-            alignItems: "center",
-            marginTop: 5
+            alignItems: "center"
           }}
         >
           <Slider
-            style={{ width: 300, transform: [{ scaleX: 1.3 }, { scaleY: 2 }] }}
+            style={{
+              width: 300,
+              transform: [{ scaleX: 1.3 }, { scaleY: 2 }]
+            }}
             step={1000}
             minimumValue={1000}
             maximumValue={2000000}
@@ -160,19 +162,14 @@ class SearchFilters extends Component {
             thumbTintColor={"rgb(61, 180, 226)"}
             maximumTrackTintColor={"#fff"}
             minimumTrackTintColor={"#fff"}
-            
           />
           <Text style={styles.priceStyle}>${this.state.price}</Text>
         </View>
 
         {/* <Image source={{ uri: imageUri }} style={{ width: '100%', height: '33%', bottom: 0 }} /> */}
-        <TouchableOpacity
-          style={styles.PropertyButtonStyle}
-          activeOpacity={0.5}
-          onPress={() => this.props.navigation.navigate("main")}
-        >
-          <Text style={styles.PropertyStyle}> How will you pay ? </Text>
-        </TouchableOpacity>
+        <View style={styles.FilterTitleStyle}>
+          <Text style={styles.FilterText}> How will you pay ? </Text>
+        </View>
 
         <View
           style={{
@@ -181,32 +178,40 @@ class SearchFilters extends Component {
             flex: 1,
             flexDirection: "row",
             justifyContent: "center",
-            flexWrap: "wrap",
-            marginTop: 5
+            flexWrap: "wrap"
           }}
         >
           <TouchableOpacity
-            style={styles.LeftBuyButtonStyle}
+            style={[
+              styles.PayButtonStyle,
+              { backgroundColor: bgColor1 }
+            ]}
             activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
+            onPress={() => { this.selectToggle();
+            }}
           >
-            <Text style={styles.TypePayStyle}> Cash </Text>
+            <Text style={styles.PayText}> Cash </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.RightBuyButtonStyle}
+            style={[
+              styles.PayButtonStyle,
+              
+            ]}
             activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
+            onPress={() => {
+              this.backgroundColor="rgba(255,255,255,0.5)";
+            }}
           >
-            <Text style={styles.TypePayStyle}> Mortgage </Text>
+            <Text style={styles.PayText}> Mortgage </Text>
           </TouchableOpacity>
         </View>
-
+        
         <TouchableOpacity
           style={styles.SearchButtonStyle}
           activeOpacity={0.5}
           onPress={() => this.props.navigation.navigate("main")}
         >
-          <Text style={styles.PropertyStyle}> S E A R C H </Text>
+          <Text style={styles.FilterText}> S E A R C H </Text>
         </TouchableOpacity>
       </ImageBackground>
     );
@@ -214,50 +219,45 @@ class SearchFilters extends Component {
 }
 
 const styles = StyleSheet.create({
-  icon: {
-    height: 45,
-    width: 45,
-    tintColor: 'rgb(255,255,255)',
-    margin: 0,
-    position: 'absolute',
-    right: 25 + "%",
-    top: 68 + "%",
-  },
   priceStyle: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '500',
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "500",
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3
   },
   UseLocStyle: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '500',
-    textDecorationLine: 'underline',
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "500",
+    textDecorationLine: "underline",
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3
   },
   overlayStyle: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    position: 'absolute',
+    backgroundColor: "rgba(0,0,0,0.5)",
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     height: 100 + "%",
-    width: 100 + "%",
+    width: 100 + "%"
   },
-  buttonViewStyle: {
-    margin: 0,
-  },
+
   inputSearch: {
     height: 50,
     width: 70 + "%",
-    color: '#ffffff',
-    fontWeight: 'bold',
+    color: "#ffffff",
+    fontWeight: "bold",
     marginHorizontal: 50,
     backgroundColor: "rgba(0, 0, 0, 0.01)",
     borderWidth: 0.8,
     borderRadius: 20,
-    borderColor: '#d6d7da',
-    textAlign: 'center',
+    borderColor: "#d6d7da",
+    textAlign: "center"
   },
 
   UseLocButtonStyle: {
@@ -266,149 +266,126 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     width: 325,
-    backgroundColor: 'rgba(0,0,0,0)',
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: 20,
     borderWidth: 0,
-    borderColor: 'rgba(255,255,255,0.9)',
-    justifyContent: 'center', alignItems: 'center'
+    borderColor: "rgba(255,255,255,0.9)",
+    justifyContent: "center",
+    alignItems: "center",
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3
   },
 
-  LocButtonStyle: {
-    textAlign: 'left',
-    marginTop: 35,
+  LocTitleStyle: {
+    textAlign: "left",
+    marginTop: 9 + "%",
     paddingTop: 5,
     paddingBottom: 5,
-    marginLeft: 25,
+    marginLeft: 5.5 + "%",
     marginRight: 0,
     width: "100%",
-    backgroundColor: 'rgba(0,0,0,0)',
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: 0,
     borderWidth: 0,
-    borderColor: '#fff',
-    alignItems: 'flex-start',
+    borderColor: "#fff",
+    alignItems: "flex-start"
   },
   LocStyle: {
-    color: 'rgb(61, 180, 226)',
-    textAlign: 'left',
-    fontWeight: '500',
+    color: "rgb(61, 180, 226)",
+    textAlign: "left",
+    fontWeight: "500",
     fontSize: 16,
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3
   },
 
-  PropertyButtonStyle: {
-    textAlign: 'left',
-    marginTop: 5,
+  FilterTitleStyle: {
+    textAlign: "left",
     paddingTop: 5,
     paddingBottom: 5,
-    marginLeft: 25,
+    marginTop: 5 + "%",
+    marginLeft: 5.5 + "%",
     marginRight: 0,
     width: "100%",
-    backgroundColor: 'rgba(0,0,0,0)',
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: 0,
     borderWidth: 0,
-    borderColor: '#fff',
-    alignItems: 'flex-start',
+    borderColor: "#fff",
+    alignItems: "flex-start"
   },
-  PropertyStyle: {
-    color: 'rgb(61, 180, 226)',
-    textAlign: 'left',
-    fontWeight: '500',
+  FilterText: {
+    color: "rgb(61, 180, 226)",
+    textAlign: "left",
+    fontWeight: "600",
     fontSize: 16,
     marginTop: 5,
     marginBottom: 5,
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3
   },
 
   SearchButtonStyle: {
-    textAlign: 'center',
-    marginTop: 2,
-    marginBottom: 25,
+    textAlign: "center",
+    marginTop: 10 + "%",
+    marginBottom: 10 + "%",
     marginLeft: 0,
     marginRight: 0,
     width: "100%",
-    backgroundColor: 'rgba(0,0,0,0)',
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: 0,
     borderWidth: 0,
-    borderColor: '#fff',
-    alignItems: 'center',
+    borderColor: "#fff",
+    alignItems: "center"
   },
 
-  CenterButtonStyle: {
+  PropertyButtonStyle: {
     marginBottom: 10,
     marginRight: 5,
     marginLeft: 5,
     width: "27%",
-    height: "35%",
-    backgroundColor: 'rgba(0,0,0,0)',
+    height: "45%",
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: 0,
     borderWidth: 1,
-    borderColor: 'rgb(61, 180, 226)',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  RightButtonStyle: {
-    marginBottom: 10,
-    marginRight: 5,
-    marginLeft: 5,
-    width: "27%",
-    height: "35%",
-    backgroundColor: 'rgba(0,0,0,0)',
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: 'rgb(61, 180, 226)',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  LeftButtonStyle: {
-    marginBottom: 10,
-    marginRight: 5,
-    marginLeft: 5,
-    width: "27%",
-    height: "35%",
-    backgroundColor: 'rgba(0,0,0,0)',
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: 'rgb(61, 180, 226)',
-    alignItems: 'center',
-    justifyContent: 'center'
+    borderColor: "rgb(61, 180, 226)",
+    alignItems: "center",
+    justifyContent: "center"
   },
   TypeStyle: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '500',
-    fontSize: 12,
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "500",
+    fontSize: 14,
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3
   },
 
-  RightBuyButtonStyle: {
+  PayButtonStyle: {
     marginBottom: 10,
     marginRight: 5,
     marginLeft: 5,
     width: "45%",
-    height: "90%",
-    backgroundColor: 'rgba(0,0,0,0)',
+    height: "100%",
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: 0,
     borderWidth: 1,
-    borderColor: 'rgb(61, 180, 226)',
-    alignItems: 'center',
-    justifyContent: 'center'
+    borderColor: "rgb(61, 180, 226)",
+    alignItems: "center",
+    justifyContent: "center"
   },
-  LeftBuyButtonStyle: {
-    marginBottom: 10,
-    marginRight: 5,
-    marginLeft: 5,
-    width: "45%",
-    height: "90%",
-    backgroundColor: 'rgba(0,0,0,0)',
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: 'rgb(61, 180, 226)',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  TypePayStyle: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '500',
+  PayText: {
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "500",
     fontSize: 18,
-  },
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3
+  }
 });
 
 export default SearchFilters;
