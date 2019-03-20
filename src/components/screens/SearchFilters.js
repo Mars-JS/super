@@ -10,8 +10,8 @@ import {
   Image,
   Dimensions,
   Slider,
+  KeyboardAvoidingView,
 } from "react-native";
-
 import config from "../../config";
 
 class SearchFilters extends Component {
@@ -75,144 +75,142 @@ class SearchFilters extends Component {
             activeOpacity={0.5}
             onPress={() => this.props.navigation.navigate("main")}
           >
-            <Text style={styles.UseLocStyle}> Or use current Location </Text>
+            <Text style={styles.UseLocStyle}>
+              {" "}
+              Or use current Location{" "}
+            </Text>
           </TouchableOpacity>
-        </View>
 
-        <View style={styles.FilterTitleStyle}>
-          <Text style={styles.FilterText}> Property Types </Text>
-        </View>
+          <View style={styles.FilterTitleStyle}>
+            <Text style={styles.FilterText}> Property Types </Text>
+          </View>
 
-        <View
-          style={{
-            width: 100 + "%",
-            height: 100 + "%",
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: "center",
-            flexWrap: "wrap"
-          }}
-        >
-          <TouchableOpacity
-            style={styles.PropertyButtonStyle}
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
-          >
-            <Text style={styles.TypeStyle}> Homes </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.PropertyButtonStyle}
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
-          >
-            <Text style={styles.TypeStyle}> Apartments </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.PropertyButtonStyle}
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
-          >
-            <Text style={styles.TypeStyle}> Townhomes </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.PropertyButtonStyle}
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
-          >
-            <Text style={styles.TypeStyle}> Condos </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.PropertyButtonStyle}
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
-          >
-            <Text style={styles.TypeStyle}> Duplex </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.PropertyButtonStyle}
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("main")}
-          >
-            <Text style={styles.TypeStyle}> Triplex </Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.FilterTitleStyle}>
-          <Text style={styles.FilterText}> Max Price </Text>
-        </View>
-
-        <View
-          style={{
-            height: 100 + "%",
-            width: 100 + "%",
-            flex: 1,
-            alignItems: "center"
-          }}
-        >
-          <Slider
+          <View
             style={{
-              width: 300,
-              transform: [{ scaleX: 1.3 }, { scaleY: 2 }]
-            }}
-            step={1000}
-            minimumValue={1000}
-            maximumValue={2000000}
-            value={this.state.price}
-            onValueChange={val => this.setState({ price: val })}
-            thumbTintColor={"rgb(61, 180, 226)"}
-            maximumTrackTintColor={"#fff"}
-            minimumTrackTintColor={"#fff"}
-          />
-          <Text style={styles.priceStyle}>${this.state.price}</Text>
-        </View>
-
-        {/* <Image source={{ uri: imageUri }} style={{ width: '100%', height: '33%', bottom: 0 }} /> */}
-        <View style={styles.FilterTitleStyle}>
-          <Text style={styles.FilterText}> How will you pay ? </Text>
-        </View>
-
-        <View
-          style={{
-            height: 100 + "%",
-            width: 100 + "%",
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: "center",
-            flexWrap: "wrap"
-          }}
-        >
-          <TouchableOpacity
-            style={[
-              styles.PayButtonStyle,
-              { backgroundColor: bgColor1 }
-            ]}
-            activeOpacity={0.5}
-            onPress={() => { this.selectToggle();
+              width: 100 + "%",
+              height: 100 + "%",
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "center",
+              flexWrap: "wrap"
             }}
           >
-            <Text style={styles.PayText}> Cash </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.PayButtonStyle,
-              
-            ]}
-            activeOpacity={0.5}
-            onPress={() => {
-              this.backgroundColor="rgba(255,255,255,0.5)";
+            <TouchableOpacity
+              style={styles.PropertyButtonStyle}
+              activeOpacity={0.5}
+              onPress={() => this.props.navigation.navigate("main")}
+            >
+              <Text style={styles.TypeStyle}> Homes </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.PropertyButtonStyle}
+              activeOpacity={0.5}
+              onPress={() => this.props.navigation.navigate("main")}
+            >
+              <Text style={styles.TypeStyle}> Apartments </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.PropertyButtonStyle}
+              activeOpacity={0.5}
+              onPress={() => this.props.navigation.navigate("main")}
+            >
+              <Text style={styles.TypeStyle}> Townhomes </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.PropertyButtonStyle}
+              activeOpacity={0.5}
+              onPress={() => this.props.navigation.navigate("main")}
+            >
+              <Text style={styles.TypeStyle}> Condos </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.PropertyButtonStyle}
+              activeOpacity={0.5}
+              onPress={() => this.props.navigation.navigate("main")}
+            >
+              <Text style={styles.TypeStyle}> Duplex </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.PropertyButtonStyle}
+              activeOpacity={0.5}
+              onPress={() => this.props.navigation.navigate("main")}
+            >
+              <Text style={styles.TypeStyle}> Triplex </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.FilterTitleStyle}>
+            <Text style={styles.FilterText}> Max Price </Text>
+          </View>
+
+          <View
+            style={{
+              height: 100 + "%",
+              width: 100 + "%",
+              flex: 1,
+              alignItems: "center"
             }}
           >
-            <Text style={styles.PayText}> Mortgage </Text>
+            <Slider
+              style={{
+                width: 300,
+                transform: [{ scaleX: 1.3 }, { scaleY: 2 }]
+              }}
+              step={1000}
+              minimumValue={1000}
+              maximumValue={2000000}
+              value={this.state.price}
+              onValueChange={val => this.setState({ price: val })}
+              thumbTintColor={"rgb(61, 180, 226)"}
+              maximumTrackTintColor={"#fff"}
+              minimumTrackTintColor={"#fff"}
+            />
+            <Text style={styles.priceStyle}>${this.state.price}</Text>
+          </View>
+
+          {/* <Image source={{ uri: imageUri }} style={{ width: '100%', height: '33%', bottom: 0 }} /> */}
+          <View style={styles.FilterTitleStyle}>
+            <Text style={styles.FilterText}> How will you pay ? </Text>
+          </View>
+
+          <View
+            style={{
+              height: 100 + "%",
+              width: 100 + "%",
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "center",
+              flexWrap: "wrap"
+            }}
+          >
+            <TouchableOpacity
+              style={[styles.PayButtonStyle, { backgroundColor: bgColor1 }]}
+              activeOpacity={0.5}
+              onPress={() => {
+                this.selectToggle();
+              }}
+            >
+              <Text style={styles.PayText}> Cash </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.PayButtonStyle]}
+              activeOpacity={0.5}
+              onPress={() => {
+                this.backgroundColor = "rgba(255,255,255,0.5)";
+              }}
+            >
+              <Text style={styles.PayText}> Mortgage </Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity
+            style={styles.SearchButtonStyle}
+            activeOpacity={0.5}
+            onPress={() => this.props.navigation.navigate("main")}
+          >
+            <Text style={styles.FilterText}> S E A R C H </Text>
           </TouchableOpacity>
         </View>
-        
-        <TouchableOpacity
-          style={styles.SearchButtonStyle}
-          activeOpacity={0.5}
-          onPress={() => this.props.navigation.navigate("main")}
-        >
-          <Text style={styles.FilterText}> S E A R C H </Text>
-        </TouchableOpacity>
       </ImageBackground>
     );
   }
