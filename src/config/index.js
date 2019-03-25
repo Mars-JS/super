@@ -7,6 +7,13 @@ export default {
     bubbleIcon: require("../../assets/bubble.png"),
     arrowIcon: require("../../assets/arrow.png"),
     searchIcon: require("../../assets/search.png"),
+    houseIcon: require("../../assets/house.png"),
+    calendarIcon: require("../../assets/calendar.png"),
+    mailIcon: require("../../assets/mail.png"),
+    hamburgerIcon: require("../../assets/hamburger.png"),
+    cartIcon: require("../../assets/cart.png"),
+    mapIcon: require("../../assets/map.png"),
+    profileIcon: require("../../assets/profile.png")
   },
   styleConstants: {
     rowHeight: 50,

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
 import {
   MainFeed,
   Login,
@@ -8,6 +7,7 @@ import {
   Profile,
   Search,
   SearchFilters,
+  MapSearch,
 } from "./components/screens";
 
 import {
@@ -24,7 +24,7 @@ import {
 
 const BrowseStack = StackNavigator({
   feed: MainFeed,
-  
+  map: MapSearch,
   camera: Camera,
   profile: Profile,
 },
@@ -37,20 +37,24 @@ const BrowseStack = StackNavigator({
   }
 );
 
-const IntroStack = StackNavigator({
-  login: Login,
-  register: Register,
-  search: Search,
-  filter: SearchFilters,
-},
+const IntroStack = StackNavigator(
+  {
+    login: Login,
+    register: Register,
+    search: Search,
+    filter: SearchFilters,
+  },
   {
     navigationOptions: () => ({
       headerStyle: {
-        position: 'absolute',
-        backgroundColor: 'transparent',
-        zIndex: 100, top: 0, left: 0, right: 0
+        position: "absolute",
+        backgroundColor: "transparent",
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0
       }
-    }),
+    })
   }
 );
 

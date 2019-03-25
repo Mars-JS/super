@@ -97,7 +97,7 @@ class Post extends Component {
 
               <TouchableOpacity
                 style={styles.BuyButtonStyle}
-                activeOpacity={.8}
+                activeOpacity={0.8}
                 onPress={() => this.props.navigate("camera")}>
                 <Text style={styles.TextStyle}> buy </Text>
               </TouchableOpacity>
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: 36
+    marginBottom: 46,
   },
   priceText: {
     height: 25,
