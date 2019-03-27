@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   icon: {
-    height: 45, width: 45, tintColor: "black",
+    height: 45, width: 45, 
+    tintColor: "black",
     marginTop: 0,
     marginRight: 5 + "%",
   },

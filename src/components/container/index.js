@@ -1,3 +1,4 @@
 import PostFeed from "./PostFeed";
+import Map from "./Map";
 
-export { PostFeed };
+export { PostFeed, Map };

@@ -8,7 +8,7 @@ import {
   View,
   Image
 } from "react-native";
-import PostFeed from "../container/PostFeed";
+import Map from "../container/Map";
 import BottomNav from "./BottomNav";
 import config from "../../config";
 
@@ -16,6 +16,7 @@ class MapSearch extends Component {
   render() {
     return (
       <View style={{ flex: 1, width: 100 + "%", height: 100 + "%" }}>
+        
         <View style={styles.topNav}>
           <View
             style={{
@@ -28,17 +29,17 @@ class MapSearch extends Component {
               flexWrap: "wrap"
             }}
           >
-
             <Image style={styles.iconMap} source={config.images.mapIcon} />
             <Text style={styles.titleMain}>
               H O M E S <Text style={styles.titleMain2}> C O .</Text>
             </Text>
             <Image style={styles.iconCart} source={config.images.cartIcon} />
-
           </View>
         </View>
-        <PostFeed />
+        
+        <Map />
         <BottomNav />
+
       </View>
     );
   }
