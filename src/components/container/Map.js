@@ -10,6 +10,8 @@ import {
   TextInput
 } from "react-native";
 import config from "../../config";
+import SearchBar from "./SearchBar";
+import SearchResult from "./SearchResult";
 
 class Map extends Component {
   constructor() {
@@ -23,66 +25,41 @@ class Map extends Component {
 
   render() {
     console.log(this.props.item);
-    const imageUri = "https://lh3.googleusercontent.com/proxy/rkXc8OvsoIvQtUQztV0--FtjgXDV2QAQZnoTL378alSaAmqsGilOyAp-Zwm8sMv2VCfaYtqx6miWPg6t6PmNZZGHsL2Vv9QYkQMO2GIszHiFCtXATJEjYb8boD0N1ABRYY4mRzHUv-HWpKG0IPL-jrj2U5-SOJiVzkb1LjO1Lo5HAVtOr8wfyWApvDjceP-EGq_sVEuXfZpfHh4p3JdHA_l5a19n9AdCk17HvpOJhRsAjH05CCq3PnHbbvdd3GmHysCnGrtmI_SmLUhWWR3YiqBNJuQY_jk9AekHWTyn6Yd__Vdy4Qf8P1gS0N82hxD_tR5mBSEls3X7jw=s289-p-k-rw";
+    const imageUri =
+      "https://lh3.googleusercontent.com/ojOMnFeH9hgcZ00weHjT9_P-CMgt4dEij8WzHec2BN_VrJgAzOxYoFE1PlC_KHLWT3Eh4Jkdvv6O2TVv8LvMlAcAUQ";
 
     return (
       <View style={{ flex: 1, width: 100 + "%" }}>
-        
-          <ImageBackground
-            style={{
-              width: this.state.screenWidth,
-              height: this.state.screenHeight
-            }}
-            source={{ uri: imageUri }}
-          >
-            <View style={styles.topNav}>
-              <View
-                style={{
-                  height: 100 + "%",
-                  width: 100 + "%",
-                  flex: 1,
-                  flexDirection: "row",
-                  justifyContent: "space-evenly",
-                  alignItems: "center",
-                  flexWrap: "wrap"
-                }}
-              >
-                <TextInput
-                  autoCapitalize="none"
-                  value="search"
-                  placeholder="Search"
-                  style={styles.inputSearch}
-                  autoCorrect={false}
-                  /*onChangeText={text => this.updateText(text, "email")}
-                  onChangeText={text => this.props.navigation.navigate("feed")}*/
-                />
-              </View>
-            </View>
-            
-            <View style={styles.iconBar}>
-              <Image
-                style={[
-                  styles.icon,
-                  {
-                    marginRight: 5,
-                    marginBottom: -5
-                  }
-                ]}
-                source={config.images.bubbleIcon}
-              />
-              <Text style={[styles.TextStyle]}>2.3k</Text>
-              <Image
-                style={[
-                  styles.icon,
-                  { marginRight: 5 }
-                ]}
-                source={config.images.bubbleIcon}
-              />
-              <Text style={[styles.TextStyle]}>1.6k</Text>
-            </View>
-            
-          </ImageBackground>
-        
+        <ImageBackground
+          style={{
+            width: this.state.screenWidth,
+            height: this.state.screenHeight
+          }}
+          source={{ uri: imageUri }}
+        >
+          <SearchBar />
+          <View style={styles.iconBar}>
+            <Image
+              style={[
+                styles.icon,
+                {
+                  marginRight: 5,
+                  marginBottom: -5
+                }
+              ]}
+              source={config.images.bubbleIcon}
+            />
+            <Text style={[styles.TextStyle]}>2.3k</Text>
+            <Image
+              style={[styles.icon, { marginRight: 5 }]}
+              source={config.images.bubbleIcon}
+            />
+            <Text style={[styles.TextStyle]}>1.6k</Text>
+          </View>
+
+          <SearchResult />
+          
+        </ImageBackground>
       </View>
     );
   }
@@ -190,13 +167,7 @@ const styles = StyleSheet.create({
     borderColor: "#d6d7da",
     textAlign: "left"
   },
-  searchBar: {
-    flex: 1, 
-    width: 100 + "%", 
-    height: 65,
-    backgroundColor: "rgba(255,255,255,0)",
-    
-  }
+
 });
 
 export default Map;

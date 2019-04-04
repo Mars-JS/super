@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     width: 100 + "%",
     height: 56,
     backgroundColor: "rgb(250,250,250)",
-    borderBottomColor: "rgb(233,233,233)",
+    borderBottomColor: "rgb(50,50,50)",
     borderBottomWidth: StyleSheet.hairlineWidth
   },
   iconMap: {
