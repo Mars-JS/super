@@ -13,7 +13,9 @@ export default {
     hamburgerIcon: require("../../assets/hamburger.png"),
     cartIcon: require("../../assets/cart.png"),
     mapIcon: require("../../assets/map.png"),
-    profileIcon: require("../../assets/profile.png")
+    profileIcon: require("../../assets/profile.png"),
+    logoIcon: require("../../assets/logo.png")
+
   },
   styleConstants: {
     rowHeight: 50,

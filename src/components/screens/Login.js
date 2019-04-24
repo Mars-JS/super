@@ -11,6 +11,7 @@ import {
   Icon,
   Dimensions
 } from "react-native";
+import config from "../../config";
 
 class Login extends Component {
   constructor() {
@@ -23,10 +24,11 @@ class Login extends Component {
 
   render() {
     const imageHeight = Math.floor(this.state.screenHeight );
-    const imageSelection = "https://lh3.googleusercontent.com/OpqsEUi7jtdlhPxcObLRUJbQ0PwBcaleUaw_7xSnFet1dDrnkAiEfcLJrp9w8XCYUePl5ZqIiKjDmsEdKAUvxTvj_YY";
+    const imageSelection = "https://lh3.googleusercontent.com/7JfNUgr07h0G96lJdXp13lDiGVurbqTq4BElIKdYCQ22o0SmRt0ebnnZesBxi2HSTCIU2tXjs83dwGI_FpVHHL-fHw";
     const imageUri = imageSelection + "=s" + imageHeight + "-c";
+
     return (
-      
+
       <ImageBackground source={{ uri: imageUri }} style={{ width: '100%', height: '100%' }}>
         <View style={styles.overlayStyle} />
 
@@ -36,7 +38,7 @@ class Login extends Component {
           onPress={() => this.props.navigation.navigate("register")}>
           <Text style={styles.SignUpStyle}> s i g n   u p </Text>
         </TouchableOpacity>
-        
+
         <View
           style={{
             height: 100 + "%",
@@ -45,7 +47,8 @@ class Login extends Component {
             alignItems: "center",
           }}
         >
-          <Text style={styles.titleText}>H O M E S <Text style={styles.titleTextt}> C O .</Text></Text>
+
+        <Image style={{marginBottom: 110 }} source={config.images.logoIcon} />
 
           <TextInput
             autoCapitalize="none"
@@ -55,7 +58,7 @@ class Login extends Component {
             autoCorrect={false}
           /*onChangeText={text => this.updateText(text, "email")}*/
           />
-          
+
           <TextInput
             autoCapitalize="none"
             value="password"
@@ -65,7 +68,7 @@ class Login extends Component {
             placeholder="password"
             style={styles.input}
           />
-          
+
           <TouchableOpacity
             style={styles.LoginButtonStyle}
             activeOpacity={.5}
@@ -89,14 +92,14 @@ class Login extends Component {
 
         </View>
       </ImageBackground>
-      
+
     );
   }
 }
 
 const styles = StyleSheet.create({
   overlayStyle:{
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.1)',
     position: 'absolute',
     top: 0,
     left: 0,
@@ -182,8 +185,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'right',
     fontWeight: '500',
+    marginTop: '15%',
+    marginRight: '3%',
   },
-  
+
   searchSection: {
     flex: 1,
     flexDirection: 'row',

@@ -10,6 +10,7 @@ import {
   Image,
   Dimensions
 } from "react-native";
+import config from "../../config";
 
 class Register extends Component {
   constructor() {
@@ -22,7 +23,7 @@ class Register extends Component {
 
   render() {
     const imageHeight = Math.floor(this.state.screenHeight);
-    const imageSelection = "https://lh3.googleusercontent.com/OpqsEUi7jtdlhPxcObLRUJbQ0PwBcaleUaw_7xSnFet1dDrnkAiEfcLJrp9w8XCYUePl5ZqIiKjDmsEdKAUvxTvj_YY";
+    const imageSelection = "https://lh3.googleusercontent.com/aCrxmVyHGkXm9xaYJ1dE7yu0jVAR8cCn96ThU9xfSLBvh_3_CUZySVugTeoXHZbbzLLI-MtSGFrCtX6ArxJKtDOM";
     const imageUri = imageSelection + "=s" + imageHeight + "-c";
     return (
       <ImageBackground source={{ uri: imageUri }} style={{ width: '100%', height: '100%' }}>
@@ -40,12 +41,11 @@ class Register extends Component {
             height: 100 + "%",
             width: 100 + "%",
             flex: 1,
-            justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <Text style={styles.titleTextReg}>H O M E S <Text style={styles.titleTexttReg}> C O .</Text></Text>
-          <TextInput
+<Image style={{marginBottom: 10 }} source={config.images.logoIcon} />
+ <TextInput
             autoCapitalize="none"
             value="fullname"
             placeholder="Full Name"
@@ -107,7 +107,7 @@ class Register extends Component {
 
 const styles = StyleSheet.create({
   overlayStyle: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.2)',
     position: 'absolute',
     top: 0,
     left: 0,
@@ -194,9 +194,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'right',
     fontWeight: '500',
+    marginTop: '15%',
+    marginRight: '3%',
   },
 
 });
 
 export default Register;
-

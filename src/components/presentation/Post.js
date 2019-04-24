@@ -29,13 +29,13 @@ class Post extends Component {
     console.log(this.props.item);
     const imageHeight = Math.floor(this.state.screenWidth * 1.1);
     const imageSelection =
-      this.props.item % 2 == 0 
-        ? "https://lh3.googleusercontent.com/kkrrzcNJj_IYhh3DPPV4zQ6sfaLsLMM71MOBEj9ll3JiftwGz0aCvw55fdMWWemRAzw2ld7tEtQfQ5-w9DiCKii1LKw"
-        : "https://lh3.googleusercontent.com/I6dvmagax3RHaVBmGWjVtFmjOu4dps7wlnNQK_YA0ov3hXesk90dlGuMM5LBuovOQ2WMtEcIJBb3NzmuG9ATBeU1ow";
+      this.props.item % 2 == 0
+        ? "https://lh3.googleusercontent.com/ENGsdzkwhKl_iSYOHFOJMISU5YUhEHkvQG6-Y9BfpIyPFBVZ_qMiWnfBCjCg_sKxd__xaX2rT3tIPEYwrKzep3Yf_A"
+        : "https://lh3.googleusercontent.com/mKUVhdDK1E11hF98IaJAne1Ll9d8o5ibkuWDtfxx-5mF07D8sme00c45aebjyJuQi1pFEeI9foLCWpf40XYHR_xYSg";
     const imageUri = imageSelection + "=s" + imageHeight + "-c";
 
     const heartIconColor = this.state.liked ? "rgb(252,61,57)" : null;
-    
+
     return (
       <View style={{ flex: 1, width: 100 + "%" }}>
 
@@ -90,17 +90,13 @@ class Post extends Component {
               <Text>128 Likes</Text>
             </View> */}
             <View style={styles.infoView}>
-              <Text style={styles.priceText}> $650,000 </Text>
-              <Text style={styles.infoText}> 21045 Willignham Ct. </Text>
-              <Text style={styles.infoText}> Boulder, Co 536727 </Text>
-              <Text style={styles.infoText}> 3 beds | 4 baths | 3,100 sq.ft </Text>
 
-              <TouchableOpacity
-                style={styles.BuyButtonStyle}
-                activeOpacity={0.8}
-                onPress={() => this.props.navigate("camera")}>
-                <Text style={styles.TextStyle}> buy </Text>
-              </TouchableOpacity>
+              <Text style={styles.infoText}> Having so much fun living the dream </Text>
+              <Text style={styles.infoText}> Wish you were here! </Text>
+              <Text style={styles.infoText}> </Text>
+
+
+
             </View>
           </ImageBackground>
         </TouchableOpacity>

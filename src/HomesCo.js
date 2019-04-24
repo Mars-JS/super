@@ -30,8 +30,8 @@ const BrowseStack = StackNavigator({
 },
   {
     navigationOptions: () => ({
-      headerStyle: { position: 'absolute', 
-          backgroundColor: 'transparent', 
+      headerStyle: { position: 'absolute',
+          backgroundColor: 'transparent',
           zIndex: 100, top: 0, left: 0, right: 0 }
     }),
   }
@@ -52,7 +52,10 @@ const IntroStack = StackNavigator(
         zIndex: 100,
         top: 0,
         left: 0,
-        right: 0
+        right: 0,
+        height: 18,
+        marginBottom: 20
+
       }
     })
   }
@@ -82,7 +85,7 @@ const MainStack = SwitchNavigator({
 }; */
 
 class HomesCo extends Component {
-  
+
   storeId() {
     console.log("calling");
   };
